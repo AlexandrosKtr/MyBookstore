@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy Book
+{% endblock %}
+
+{% block main %}
+    <div class="bg-light mx-auto p-3 ">
+        <h4 class="center" >Are you sure you want to buy this book:</h3>
+        <table class="table table-light table-striped table-hover mt-3" >
+            <thead>
+                <tr>
+                    <th class="text-start">Title</th>
+                    <th class="text-start">Author</th>
+                    <th class="text-end">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-start">{{title}}</td>
+                    <td class="text-end">{{author}}</td>
+                    <td class="text-end">{{price}}€</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="center">
+            <form action="/buy_book" method="post">
+                <input type="submit" class="btn btn-success me-5" name="answer" value="Yes">
+                <input type="hidden" name="id" value="{{id}}">
+                <input type="submit" class="btn btn-danger ms-5" name="answer" value="No">
+            </form>
+        </div>
+    </div>
+{% endblock %}

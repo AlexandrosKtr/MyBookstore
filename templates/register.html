@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <div class="bg-light mx-auto p-3 ">
+        <form action="/register" method="post">
+            <div class="py-2">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+            </div>
+            <div class="py-2">
+                <input autocomplete="off" class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password">
+            </div>
+            <div class="py-2">
+                <input autocomplete="off" class="form-control mx-auto w-auto" name="confirmation" placeholder="Confirmation" type="password">
+            </div>
+            <div class="error">
+                {% with errors = get_flashed_messages() %}
+                    {% for error in errors %}
+                        {% if error %}
+                            <p>{{error}}</p>
+                        {% endif %}
+                    {% endfor %}
+                {% endwith %}
+            </div>
+            <div class="py-2 center">
+                <button class="btn btn-primary" type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

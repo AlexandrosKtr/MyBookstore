@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <div class="w-auto" >
+        <table class="table table-light table-striped table-hover " >
+            <thead>
+                <tr>
+                    <th class="text-start">Title</th>
+                    <th class="text-start">Author</th>
+                    <th class="text-end">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                    <tr>
+                        <td class="text-start">{{book[0]}}</td>
+                        <td class="text-start">{{book[1]}}</td>
+                        <td class="text-end">{{book[2]}}€</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

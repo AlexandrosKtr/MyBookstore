@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Book Register
+{% endblock %}
+
+{% block main %}
+    <div class="bg-light mx-auto p-3">
+        <form action="/add" method="post">
+            <div class="py-2">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="title" placeholder="Title" type="text">
+            </div>
+            <div class="py-2">
+                <input autocomplete="off" class="form-control mx-auto w-auto" name="author" placeholder="Author" type="text">
+            </div>
+            <div class="py-2">
+                <input autocomplete="off" class="form-control mx-auto w-auto" min="1" name="price" placeholder="Price" type="number" step="0.01">
+            </div>
+            <div class="error">
+                {% with errors = get_flashed_messages() %}
+                    {% for error in errors %}
+                        {% if error %}
+                            <p>{{error}}</p>
+                        {% endif %}
+                    {% endfor %}
+                {% endwith %}
+            </div>
+            <div class="center py-2">
+                <button class="btn btn-success" type="submit">Add</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

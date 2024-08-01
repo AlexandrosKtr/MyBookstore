@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table table-light table-striped table-hover w-100">
+        <thead>
+            <tr>
+                <th class="text-start">Request ID</th>
+                <th class="text-start">User ID</th>
+                <th class="text-start">Title</th>
+                <th class="text-start">Author</th>
+                <th class="text-end">Date/Time</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for book in history %}
+                <tr>
+                    <td class="text-start">{{book[0]}}</td>
+                    <td class="text-start">{{book[1]}}</td>
+                    <td class="text-start">{{book[2]}}</td>
+                    <td class="text-start">{{book[3]}}</td>
+                    <td class="text-end">{{book[4]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

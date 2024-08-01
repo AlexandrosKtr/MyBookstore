@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+    <div class="bg-light mx-auto p-3">
+        <h4 class="center">Search for a book</h3>
+        <div class="error">
+            {% with errors = get_flashed_messages() %}
+                {% for error in errors %}
+                    {% if error %}
+                        <p>{{error}}</p>
+                    {% endif %}
+                {% endfor %}
+            {% endwith %}
+        </div>
+        <form action="/search" method="post">
+            <input autocomplete="off" autofocus class="form-control mx-auto my-3" name="keyword" placeholder="Keyword" type="text">
+            <div class="center">
+                Search by:
+                <select  name="search_type">
+                    <option value="title">Title</option>
+                    <option value="author">Author</option>
+                </select>
+            </div>
+            <div class="center pt-3">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

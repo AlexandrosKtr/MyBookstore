@@ -1,0 +1,44 @@
+body
+{
+    background-image: url('/static/bookstore_img.jpeg');
+    position: relative;
+    width: auto;
+}
+
+.head
+{
+    width:auto
+}
+
+main
+{
+    width:fit-content;
+    margin: auto;
+}
+.center 
+{
+    margin: auto;
+    width:fit-content;
+}
+
+footer
+{   
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.error
+{
+    text-align: center;
+    color: red;
+    background-color: lightcyan;
+}

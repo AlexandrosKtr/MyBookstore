@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Cash
+{% endblock %}
+
+{% block main %}
+    <div class="bg-light mx-auto p-3">
+        <h4> Please specify the amount you want to deposit to your acount:</h4>
+        <form action="/add_cash" method="post">
+            <div class="py-2">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="add_cash" placeholder="Cash amount (€)" type="number" step="0.01">
+            </div>
+            <div class="error">
+                {% with errors = get_flashed_messages() %}
+                    {% for error in errors %}
+                        {% if error %}
+                            <p>{{error}}</p>
+                        {% endif %}
+                    {% endfor %}
+                {% endwith %}
+            </div>
+            <div class="center py-2">
+                <button class="btn btn-success" type="submit">Deposit</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
